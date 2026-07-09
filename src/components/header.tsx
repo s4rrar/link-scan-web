@@ -101,21 +101,26 @@ export default function Header() {
             {/* Hamburger Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="flex h-8 w-8 flex-col items-center justify-center gap-1.5 focus:outline-none text-foreground"
+              className="relative flex h-8 w-8 items-center justify-center focus:outline-none text-foreground"
               aria-label="Toggle Menu"
             >
-              <motion.span
-                animate={mobileMenuOpen ? { rotate: 45, y: 5 } : { rotate: 0, y: 0 }}
-                className="h-0.5 w-5 bg-current rounded-full"
-              />
-              <motion.span
-                animate={mobileMenuOpen ? { opacity: 0 } : { opacity: 1 }}
-                className="h-0.5 w-5 bg-current rounded-full"
-              />
-              <motion.span
-                animate={mobileMenuOpen ? { rotate: -45, y: -5 } : { rotate: 0, y: 0 }}
-                className="h-0.5 w-5 bg-current rounded-full"
-              />
+              <div className="relative flex h-5 w-5 items-center justify-center">
+                <motion.span
+                  animate={mobileMenuOpen ? { rotate: 45, y: 0 } : { rotate: 0, y: -6 }}
+                  className="absolute h-0.5 w-5 bg-current rounded-full"
+                  transition={{ duration: 0.2 }}
+                />
+                <motion.span
+                  animate={mobileMenuOpen ? { opacity: 0 } : { opacity: 1 }}
+                  className="absolute h-0.5 w-5 bg-current rounded-full"
+                  transition={{ duration: 0.2 }}
+                />
+                <motion.span
+                  animate={mobileMenuOpen ? { rotate: -45, y: 0 } : { rotate: 0, y: 6 }}
+                  className="absolute h-0.5 w-5 bg-current rounded-full"
+                  transition={{ duration: 0.2 }}
+                />
+              </div>
             </button>
           </div>
         </div>
