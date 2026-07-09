@@ -18,17 +18,18 @@ interface I18nContextValue {
 
 const I18nContext = createContext<I18nContextValue | null>(null);
 
-function getInitialLang(): Lang {
-  if (typeof window === "undefined") return "en";
-  const stored = localStorage.getItem("lang") as Lang | null;
-  if (stored === "ar" || stored === "en" || stored === "he") return stored;
-  return "en";
-}
-
 const translations: Record<Lang, Translations> = { en, ar, he };
 
-export function I18nProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Lang>(getInitialLang);
+export function I18nProvider({ children, initialLang = "en" }: { children: ReactNode; initialLang?: Lang }) {
+  const [lang, setLangState] = useState<Lang>(initialLang);
+
+  useEffect(() => {
+    const stored = localStorage.getItem("lang") as Lang | null;
+    if (stored && (stored === "ar" || stored === "en" || stored === "he") && stored !== initialLang) {
+      setLangState(stored);
+      document.cookie = `lang=${stored}; path=/; max-age=31536000; SameSite=Lax`;
+    }
+  }, [initialLang]);
 
   useEffect(() => {
     document.documentElement.dir = lang === "ar" || lang === "he" ? "rtl" : "ltr";
@@ -38,6 +39,7 @@ export function I18nProvider({ children }: { children: ReactNode }) {
   const setLang = useCallback((next: Lang) => {
     setLangState(next);
     localStorage.setItem("lang", next);
+    document.cookie = `lang=${next}; path=/; max-age=31536000; SameSite=Lax`;
   }, []);
 
   const toggleLang = useCallback(() => {

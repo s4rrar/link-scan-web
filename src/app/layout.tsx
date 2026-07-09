@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Tajawal, Heebo } from "next/font/google";
+import { cookies } from "next/headers";
 import { I18nProvider } from "@/i18n/config";
+import { ThemeInitializer } from "@/components/theme-initializer";
 import "./globals.css";
 
 const inter = Inter({
@@ -52,31 +54,20 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const cookieStore = await cookies();
+  const langCookie = cookieStore.get("lang")?.value;
+  const initialLang = (langCookie === "ar" || langCookie === "he" || langCookie === "en") ? (langCookie as "ar" | "he" | "en") : "en";
+
   return (
-    <html lang="en" className={`${inter.variable} ${tajawal.variable} ${heebo.variable}`} suppressHydrationWarning>
+    <html lang={initialLang} dir={initialLang === "ar" || initialLang === "he" ? "rtl" : "ltr"} className={`${inter.variable} ${tajawal.variable} ${heebo.variable}`} suppressHydrationWarning>
       <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  var theme = localStorage.getItem('theme');
-                  if (theme === 'light') {
-                    document.documentElement.classList.add('light');
-                  } else {
-                    document.documentElement.classList.remove('light');
-                  }
-                } catch (e) {}
-              })();
-            `,
-          }}
-        />
+        <ThemeInitializer />
       </head>
       <body className="min-h-screen bg-background text-foreground antialiased">
-        <I18nProvider>{children}</I18nProvider>
+        <I18nProvider initialLang={initialLang}>{children}</I18nProvider>
       </body>
     </html>
   );
