@@ -90,29 +90,23 @@ export default function Header() {
 
           {/* MOBILE NAVIGATION BUTTON */}
           <div className="flex items-center gap-3 sm:hidden">
-            {/* Quick Language Dropdown on Mobile */}
-            <LanguageSwitcher />
-
-            {/* Theme Toggle on Mobile */}
-            <ThemeToggle />
-
             {/* Hamburger Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="flex h-8 w-8 flex-col items-center justify-center gap-1.5 focus:outline-none"
+              className="flex h-8 w-8 flex-col items-center justify-center gap-1.5 focus:outline-none text-foreground"
               aria-label="Toggle Menu"
             >
               <motion.span
                 animate={mobileMenuOpen ? { rotate: 45, y: 5 } : { rotate: 0, y: 0 }}
-                className="h-0.5 w-5 bg-foreground rounded-full"
+                className="h-0.5 w-5 bg-current rounded-full"
               />
               <motion.span
                 animate={mobileMenuOpen ? { opacity: 0 } : { opacity: 1 }}
-                className="h-0.5 w-5 bg-foreground rounded-full"
+                className="h-0.5 w-5 bg-current rounded-full"
               />
               <motion.span
                 animate={mobileMenuOpen ? { rotate: -45, y: -5 } : { rotate: 0, y: 0 }}
-                className="h-0.5 w-5 bg-foreground rounded-full"
+                className="h-0.5 w-5 bg-current rounded-full"
               />
             </button>
           </div>
@@ -141,6 +135,15 @@ export default function Header() {
                 </a>
               ))}
               <hr className="border-border/60 my-2" />
+              
+              {/* Language & Theme Controls inside Mobile Drawer */}
+              <div className="flex items-center justify-center gap-6 py-2">
+                <LanguageSwitcher />
+                <ThemeToggle />
+              </div>
+
+              <hr className="border-border/60 my-2" />
+              
               <a
                 href="#download"
                 onClick={() => setMobileMenuOpen(false)}

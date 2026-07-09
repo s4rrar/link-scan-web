@@ -66,6 +66,8 @@ html.light {
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
@@ -73,6 +75,7 @@ body {
   color: var(--color-foreground);
   font-family: var(--font-inter, Inter), sans-serif;
   overflow-x: hidden;
+  max-width: 100%;
 }
 
 html[lang="ar"] body {
@@ -115,4 +118,26 @@ html[lang="he"] body {
 
 @utility animate-duration-* {
   animation-duration: --value(integer) * 100ms;
+}
+
+/* Smooth color transitions for theme-sensitive tags (fallback for non-supporting browsers) */
+body, header, footer, section, div, span, button, a, h1, h2, h3, p, svg {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-duration: 300ms;
+  transition-timing-function: ease;
+}
+
+/* Custom View Transition overrides for circular clip path theme transition */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 9999;
 }

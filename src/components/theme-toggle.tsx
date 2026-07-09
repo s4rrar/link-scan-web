@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 export default function ThemeToggle() {
@@ -14,16 +14,54 @@ export default function ThemeToggle() {
     }
   }, []);
 
-  const toggleTheme = () => {
+  const toggleTheme = (event: React.MouseEvent<HTMLButtonElement>) => {
     const nextTheme = theme === "dark" ? "light" : "dark";
-    setTheme(nextTheme);
-    if (nextTheme === "light") {
-      document.documentElement.classList.add("light");
-      localStorage.setItem("theme", "light");
-    } else {
-      document.documentElement.classList.remove("light");
-      localStorage.setItem("theme", "dark");
+
+    const applyTheme = (t: "dark" | "light") => {
+      if (t === "light") {
+        document.documentElement.classList.add("light");
+        localStorage.setItem("theme", "light");
+      } else {
+        document.documentElement.classList.remove("light");
+        localStorage.setItem("theme", "dark");
+      }
+    };
+
+    const doc = document as any;
+    if (!doc.startViewTransition) {
+      setTheme(nextTheme);
+      applyTheme(nextTheme);
+      return;
     }
+
+    const x = event.clientX;
+    const y = event.clientY;
+    const endRadius = Math.hypot(
+      Math.max(x, window.innerWidth - x),
+      Math.max(y, window.innerHeight - y)
+    );
+
+    const transition = doc.startViewTransition(() => {
+      setTheme(nextTheme);
+      applyTheme(nextTheme);
+    });
+
+    transition.ready.then(() => {
+      const clipPath = [
+        `circle(0px at ${x}px ${y}px)`,
+        `circle(${endRadius}px at ${x}px ${y}px)`,
+      ];
+      document.documentElement.animate(
+        {
+          clipPath: clipPath,
+        },
+        {
+          duration: 450,
+          easing: "ease-out",
+          pseudoElement: "::view-transition-new(root)",
+        }
+      );
+    });
   };
 
   return (
