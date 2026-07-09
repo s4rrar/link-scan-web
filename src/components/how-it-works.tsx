@@ -1,7 +1,7 @@
 "use client";
 
 import { useI18n } from "@/i18n/config";
-import { Reveal, StaggerContainer, StaggerItem } from "@/components/ui/motion-primitives";
+import { Reveal, StaggerContainer, StaggerItem, TiltCard } from "@/components/ui/motion-primitives";
 import { motion } from "framer-motion";
 import { glass } from "@/constants";
 
@@ -16,25 +16,27 @@ function Step({
 }) {
   return (
     <StaggerItem direction="up" scale={true}>
-      <div className={glass.stepHover}>
-        
-        {/* Step Number Circle */}
-        <div className="flex md:w-24 md:justify-center">
-          <span className="flex h-16 w-16 items-center justify-center rounded-2xl border border-primary/20 bg-primary/5 text-2xl font-black text-primary transition-all duration-300 group-hover:scale-110 group-hover:bg-primary group-hover:text-background group-hover:border-primary group-hover:shadow-[0_0_20px_rgba(8,132,239,0.4)]">
-            {num}
-          </span>
-        </div>
+      <TiltCard className="w-full" tiltMax={10} scaleOnHover={1.025}>
+        <div className={glass.stepHover}>
+          
+          {/* Step Number Circle */}
+          <div className="flex md:w-24 md:justify-center">
+            <div className="flex h-16 w-16 items-center justify-center text-center tabular-nums leading-none rounded-2xl border border-primary/20 bg-primary/5 text-2xl font-black text-primary transition-all duration-300 group-hover:scale-110 group-hover:bg-primary/20 group-hover:text-primary group-hover:border-primary/40 group-hover:shadow-[0_0_15px_rgba(8,132,239,0.3)]">
+              {num}
+            </div>
+          </div>
 
-        {/* Text Content */}
-        <div className="flex-1 pb-4">
-          <h3 className="mb-2 text-xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors duration-300">
-            {title}
-          </h3>
-          <p className="text-sm leading-relaxed text-muted">
-            {desc}
-          </p>
+          {/* Text Content */}
+          <div className="flex-1 pb-4">
+            <h3 className="mb-2 text-xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors duration-300">
+              {title}
+            </h3>
+            <p className="text-sm leading-relaxed text-muted">
+              {desc}
+            </p>
+          </div>
         </div>
-      </div>
+      </TiltCard>
     </StaggerItem>
   );
 }

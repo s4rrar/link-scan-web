@@ -56,7 +56,7 @@ export const glass = {
   dropdown: "absolute top-full mt-1.5 z-50 min-w-32.5 rounded-xl border border-white/15 dark:border-white/10 bg-card/75 p-1.5 shadow-[0_10px_30px_rgba(0,0,0,0.3)] backdrop-blur-xl",
   banner: "relative overflow-hidden rounded-3xl border border-white/15 dark:border-white/10 bg-linear-to-b from-card/45 to-card/20 p-12 text-center backdrop-blur-xl sm:p-16 shadow-[0_30px_70px_-15px_rgba(0,0,0,0.5)]",
   navbar: "mx-auto flex w-full items-center justify-between transition-all duration-300 max-w-5xl rounded-2xl border border-white/10 dark:border-white/5 bg-card/40 px-6 py-2.5 backdrop-blur-xl shadow-2xl shadow-black/30",
-  stepHover: "group relative flex flex-col gap-4 transition-all duration-300 md:flex-row md:gap-8 hover:bg-card/30 p-4 rounded-2xl border border-transparent hover:border-white/10 dark:hover:border-white/5 hover:backdrop-blur-md hover:shadow-md",
+  stepHover: "group relative flex flex-col gap-4 transition-all duration-300 md:flex-row md:gap-8 hover:bg-card-hover/45 p-4 rounded-2xl border border-transparent hover:border-primary/40 hover:backdrop-blur-md hover:shadow-[0_20px_50px_rgba(8,132,239,0.12)]",
   iconBox: "mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-primary/5 text-primary transition-all duration-300 group-hover:bg-primary/20 group-hover:shadow-[0_0_15px_rgba(8,132,239,0.3)]",
   
   // 3D & Phone Layout Specific
