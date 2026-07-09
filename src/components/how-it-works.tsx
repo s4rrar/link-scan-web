@@ -61,7 +61,7 @@ export default function HowItWorks() {
 
         <div className="relative">
           {/* Animated Connecting Timeline Line */}
-          <div className={`absolute top-4 bottom-4 hidden w-0.5 bg-border/40 md:block ${dir === "rtl" ? "right-4" : "left-4"}`}>
+          <div className={`absolute top-4 bottom-4 hidden w-0.5 bg-border/40 md:block ${dir === "rtl" ? "right-6" : "left-6"}`}>
             <motion.div 
               initial={{ height: 0 }}
               whileInView={{ height: "100%" }}
@@ -73,7 +73,7 @@ export default function HowItWorks() {
 
           {/* Staggered Timeline Steps */}
           <StaggerContainer staggerChildren={0.12}>
-            <div className="space-y-6">
+            <div className={`space-y-6 ${dir === "rtl" ? "md:pr-12" : "md:pl-12"}`}>
               {t.howItWorks.steps.map((step) => (
                 <Step 
                   key={step.num} 
