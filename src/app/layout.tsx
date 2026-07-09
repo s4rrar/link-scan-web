@@ -30,6 +30,26 @@ export const metadata: Metadata = {
   icons: {
     icon: "/logo.svg",
   },
+  openGraph: {
+    title: "LinkScan Pro \u2014 Wireless Barcode Scanner for PC",
+    description:
+      "Turn your phone into a wireless barcode scanner for your PC. Scan barcodes and QR codes with your smartphone and send data directly to your computer.",
+    images: [
+      {
+        url: "/screenshot.png",
+        width: 1200,
+        height: 630,
+        alt: "LinkScan Pro Link Preview",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "LinkScan Pro \u2014 Wireless Barcode Scanner for PC",
+    description:
+      "Turn your phone into a wireless barcode scanner for your PC. Scan barcodes and QR codes with your smartphone and send data directly to your computer.",
+    images: ["/screenshot.png"],
+  },
 };
 
 export default function RootLayout({
