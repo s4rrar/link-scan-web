@@ -66,16 +66,14 @@ html.light {
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
-  max-width: 100%;
+  overflow-x: clip;
 }
 
 body {
   background: var(--color-background);
   color: var(--color-foreground);
   font-family: var(--font-inter, Inter), sans-serif;
-  overflow-x: hidden;
-  max-width: 100%;
+  overflow-x: clip;
 }
 
 html[lang="ar"] body {

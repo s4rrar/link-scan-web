@@ -7,6 +7,7 @@ import { Magnetic } from "@/components/ui/motion-primitives";
 import { motion, AnimatePresence } from "framer-motion";
 import LanguageSwitcher from "@/components/language-switcher";
 import ThemeToggle from "@/components/theme-toggle";
+import { LINKS } from "@/constants";
 
 export default function Header() {
   const { t, dir } = useI18n();
@@ -31,13 +32,18 @@ export default function Header() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled
-            ? "border-b border-border/40 bg-background/80 py-3 backdrop-blur-xl shadow-[0_8px_30px_rgb(0,0,0,0.5)]"
-            : "border-b border-transparent bg-transparent py-5"
+        className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
+          scrolled ? "py-3 px-4" : "py-5 px-6"
         }`}
       >
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6" dir={dir}>
+        <div
+          className={`mx-auto flex w-full items-center justify-between transition-all duration-300 ${
+            scrolled
+              ? "max-w-5xl rounded-2xl border border-border/50 bg-background/80 px-6 py-2.5 backdrop-blur-xl shadow-2xl shadow-black/40"
+              : "max-w-6xl bg-transparent border border-transparent py-0"
+          }`}
+          dir={dir}
+        >
           
           {/* LOGO */}
           <Magnetic range={30} strength={0.2}>
@@ -74,7 +80,9 @@ export default function Header() {
             {/* DOWNLOAD CTA */}
             <Magnetic range={25} strength={0.2}>
               <a
-                href="#download"
+                href={LINKS.github}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="rounded-lg bg-primary/10 border border-primary/20 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-primary transition-all duration-300 hover:bg-primary hover:text-background hover:shadow-[0_0_20px_rgba(8,132,239,0.3)]"
               >
                 {t.nav.download}
@@ -117,40 +125,66 @@ export default function Header() {
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-x-0 top-16 z-40 border-b border-border bg-background/95 p-6 shadow-2xl backdrop-blur-xl sm:hidden"
+            initial={{ opacity: 0, y: -10, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -10, scale: 0.95 }}
+            transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            className="fixed top-20 left-4 right-4 z-40 rounded-2xl border border-border bg-background/95 p-6 shadow-[0_20px_50px_rgba(0,0,0,0.5)] backdrop-blur-xl sm:hidden"
           >
-            <nav className="flex flex-col gap-5 text-center">
-              {menuItems.map((item) => (
-                <a
+            <nav className="flex flex-col gap-4 text-center">
+              {menuItems.map((item, index) => (
+                <motion.a
                   key={item.href}
                   href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="py-1 text-base font-semibold text-muted transition-colors duration-300 hover:text-primary"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.05 + 0.1 }}
+                  className="py-2 text-base font-semibold text-muted transition-colors duration-300 hover:text-primary active:text-primary"
                 >
                   {item.label}
-                </a>
+                </motion.a>
               ))}
-              <hr className="border-border/60 my-2" />
+              <motion.hr
+                initial={{ opacity: 0, scaleX: 0 }}
+                animate={{ opacity: 1, scaleX: 1 }}
+                transition={{ delay: 0.25 }}
+                className="border-border/60 my-1"
+              />
               
               {/* Language & Theme Controls inside Mobile Drawer */}
-              <div className="flex items-center justify-center gap-6 py-2">
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="flex items-center justify-center gap-6 py-1"
+              >
                 <LanguageSwitcher />
                 <ThemeToggle />
-              </div>
+              </motion.div>
 
-              <hr className="border-border/60 my-2" />
+              <motion.hr
+                initial={{ opacity: 0, scaleX: 0 }}
+                animate={{ opacity: 1, scaleX: 1 }}
+                transition={{ delay: 0.35 }}
+                className="border-border/60 my-1"
+              />
               
-              <a
-                href="#download"
+              <motion.a
+                href={LINKS.github}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex h-11 items-center justify-center rounded-xl bg-primary text-sm font-semibold text-background shadow-lg"
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                className="flex h-11 items-center justify-center rounded-xl bg-linear-to-r from-primary to-secondary text-sm font-semibold text-background shadow-[0_4px_15px_rgba(8,132,239,0.35)] transition-all duration-300 hover:brightness-110 active:scale-98"
               >
+                <svg className="h-4 w-4 mr-2 rtl:ml-2 rtl:mr-0 transition-transform duration-300 group-hover:translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v12m0 0-4-4m4 4 4-4M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" />
+                </svg>
                 {t.nav.download}
-              </a>
+              </motion.a>
             </nav>
           </motion.div>
         )}

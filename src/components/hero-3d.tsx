@@ -166,7 +166,7 @@ export default function Hero3D() {
           transformStyle: "preserve-3d",
           transform: "translateZ(60px)",
         }}
-        className="absolute -left-3.75 top-[15%] z-20 flex h-22.5 w-32.5 flex-col justify-between rounded-2xl border border-secondary/30 bg-card/85 p-3 shadow-2xl backdrop-blur-md lg:-left-8.75 lg:h-27.5 lg:w-37.5"
+        className="absolute left-2 top-[15%] z-20 flex h-22.5 w-32.5 flex-col justify-between rounded-2xl border border-secondary/30 bg-card/85 p-3 shadow-2xl backdrop-blur-md lg:-left-8.75 lg:h-27.5 lg:w-37.5"
       >
         <div className="flex items-center gap-2">
           <div className="flex h-6 w-6 items-center justify-center rounded-lg bg-secondary/10 text-secondary">
@@ -205,7 +205,7 @@ export default function Hero3D() {
           transformStyle: "preserve-3d",
           transform: "translateZ(80px)",
         }}
-        className="absolute bottom-[10%] -right-3.75 z-30 flex h-25 w-35 flex-col justify-between rounded-2xl border border-primary/30 bg-card/85 p-3 shadow-2xl backdrop-blur-md lg:-right-8.75 lg:h-30 lg:w-40"
+        className="absolute bottom-[10%] right-2 z-30 flex h-25 w-35 flex-col justify-between rounded-2xl border border-primary/30 bg-card/85 p-3 shadow-2xl backdrop-blur-md lg:-right-8.75 lg:h-30 lg:w-40"
       >
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
