@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-primary: #0884ef;
+  --color-primary-dark: #0670cc;
+  --color-secondary: #10b981;
+  --color-background: #08090a;
+  --color-foreground: #f8fafc;
+  --color-muted: #8892a4;
+  --color-card: #101218;
+  --color-border: #1e2230;
+  --color-card-hover: #161a26;
+
+  --animate-fade-in: fade-in 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  --animate-fade-in-up: fade-in-up 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  --animate-scale-in: scale-in 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  --animate-glow: glow 3s ease-in-out infinite alternate;
+  --animate-float: float 6s ease-in-out infinite;
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes glow {
+  0% { box-shadow: 0 0 20px color-mix(in srgb, var(--color-primary) 15%, transparent); }
+  100% { box-shadow: 0 0 40px color-mix(in srgb, var(--color-primary) 30%, transparent); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-inter, Inter), sans-serif;
+  overflow-x: hidden;
+}
+
+html[lang="ar"] body {
+  font-family: var(--font-tajawal, Tajawal), sans-serif;
+}
+
+html[lang="he"] body {
+  font-family: var(--font-heebo, Heebo), sans-serif;
+}
+
+::selection {
+  background-color: var(--color-primary);
+  color: var(--color-background);
+}
+
+.canvas-particles {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.section-content {
+  position: relative;
+  z-index: 1;
+}
+
+.gradient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  opacity: 0.4;
+  animation: float 8s ease-in-out infinite;
+}
+
+@utility animate-delay-* {
+  animation-delay: --value(integer) * 100ms;
+}
+
+@utility animate-duration-* {
+  animation-duration: --value(integer) * 100ms;
+}
