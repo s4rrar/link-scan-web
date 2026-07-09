@@ -6,6 +6,7 @@ import { useI18n } from "@/i18n/config";
 import { Magnetic } from "@/components/ui/motion-primitives";
 import { motion, AnimatePresence } from "framer-motion";
 import LanguageSwitcher from "@/components/language-switcher";
+import ThemeToggle from "@/components/theme-toggle";
 
 export default function Header() {
   const { t, dir } = useI18n();
@@ -82,12 +83,18 @@ export default function Header() {
 
             {/* LANGUAGE CHANGER */}
             <LanguageSwitcher />
+
+            {/* THEME TOGGLE */}
+            <ThemeToggle />
           </nav>
 
           {/* MOBILE NAVIGATION BUTTON */}
           <div className="flex items-center gap-3 sm:hidden">
             {/* Quick Language Dropdown on Mobile */}
             <LanguageSwitcher />
+
+            {/* Theme Toggle on Mobile */}
+            <ThemeToggle />
 
             {/* Hamburger Button */}
             <button

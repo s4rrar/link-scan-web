@@ -1,15 +1,36 @@
 @import "tailwindcss";
 
+:root {
+  --primary: #0884ef;
+  --primary-dark: #0670cc;
+  --secondary: #10b981;
+  --background: #08090a;
+  --foreground: #f8fafc;
+  --muted: #8892a4;
+  --card: #101218;
+  --border: #1e2230;
+  --card-hover: #161a26;
+}
+
+html.light {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --muted: #64748b;
+  --card: #ffffff;
+  --border: #e2e8f0;
+  --card-hover: #f1f5f9;
+}
+
 @theme inline {
-  --color-primary: #0884ef;
-  --color-primary-dark: #0670cc;
-  --color-secondary: #10b981;
-  --color-background: #08090a;
-  --color-foreground: #f8fafc;
-  --color-muted: #8892a4;
-  --color-card: #101218;
-  --color-border: #1e2230;
-  --color-card-hover: #161a26;
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-secondary: var(--secondary);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-card: var(--card);
+  --color-border: var(--border);
+  --color-card-hover: var(--card-hover);
 
   --animate-fade-in: fade-in 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
   --animate-fade-in-up: fade-in-up 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
