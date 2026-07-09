@@ -3,6 +3,7 @@
 import { useI18n } from "@/i18n/config";
 import { Reveal, StaggerContainer, StaggerItem } from "@/components/ui/motion-primitives";
 import { motion } from "framer-motion";
+import { glass } from "@/constants";
 
 export default function Privacy() {
   const { t, dir } = useI18n();
@@ -29,7 +30,7 @@ export default function Privacy() {
           <div className="grid gap-4 sm:grid-cols-2">
             {t.privacy.items.map((item) => (
               <StaggerItem key={item} direction="up" scale={true}>
-                <div className="group flex items-start gap-4 rounded-2xl border border-border bg-card/60 p-5 backdrop-blur-sm transition-all duration-300 hover:border-secondary/30 hover:bg-card-hover hover:shadow-[0_15px_35px_rgba(16,185,129,0.04)]">
+                <div className={`group flex items-start gap-4 rounded-2xl ${glass.cardSecondary}`}>
                   
                   {/* Bouncy animated green checkmark */}
                   <motion.div 
@@ -53,7 +54,7 @@ export default function Privacy() {
         {/* SECURITY FOOTNOTE DECAL */}
         <Reveal direction="up" delay={0.4}>
           <div className="mt-12 flex justify-center">
-            <div className="inline-flex items-center gap-3 rounded-2xl border border-border bg-card/40 px-5 py-3 text-xs text-muted">
+            <div className={`inline-flex items-center gap-3 rounded-2xl ${glass.badge} px-5 py-3`}>
               <svg className="h-4 w-4 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
               </svg>

@@ -4,7 +4,7 @@ import { useI18n } from "@/i18n/config";
 import Hero3D from "@/components/hero-3d";
 import { Reveal, Magnetic } from "@/components/ui/motion-primitives";
 import { motion } from "framer-motion";
-import { LINKS } from "@/constants";
+import { LINKS, glass } from "@/constants";
 
 export default function Hero() {
   const { t, dir } = useI18n();
@@ -33,7 +33,7 @@ export default function Hero() {
             
             {/* BADGE ANIMATION */}
             <Reveal direction="down" delay={0.1}>
-              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-card/80 px-4 py-1.5 text-xs font-medium text-muted backdrop-blur-sm">
+              <div className={`mb-6 inline-flex items-center gap-2 rounded-full ${glass.badge}`}>
                 <span className="flex h-2 w-2 rounded-full bg-secondary shadow-[0_0_8px_rgba(16,185,129,0.6)] animate-pulse" />
                 {t.hero.badge}
               </div>
@@ -72,7 +72,7 @@ export default function Hero() {
                     href={LINKS.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group relative inline-flex h-12 w-full sm:w-auto items-center justify-center gap-2.5 overflow-hidden rounded-xl bg-primary px-8 text-sm font-semibold text-background transition-colors duration-300 hover:bg-primary-dark shadow-[0_4px_20px_rgba(8,132,239,0.3)] hover:shadow-[0_0_30px_rgba(8,132,239,0.5)]"
+                    className={glass.btnPrimary}
                   >
                     <svg className="h-4 w-4 transition-transform duration-300 group-hover:translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v12m0 0-4-4m4 4 4-4M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" />
@@ -85,7 +85,7 @@ export default function Hero() {
                 <Magnetic range={30} strength={0.2}>
                   <a
                     href="#how-it-works"
-                    className="group inline-flex h-12 w-full sm:w-auto items-center justify-center gap-2.5 rounded-xl border border-border bg-card/40 px-8 text-sm font-semibold text-foreground/80 backdrop-blur-sm transition-all duration-300 hover:border-primary/40 hover:bg-card-hover"
+                    className={glass.btnSecondary}
                   >
                     {t.hero.ctaSecondary}
                     <svg className="h-4 w-4 transition-transform duration-300 group-hover:translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>

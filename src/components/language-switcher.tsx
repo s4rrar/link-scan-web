@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useI18n } from "@/i18n/config";
 import { motion, AnimatePresence } from "framer-motion";
+import { glass } from "@/constants";
 
 export default function LanguageSwitcher() {
   const { lang, dir, setLang } = useI18n();
@@ -23,7 +24,7 @@ export default function LanguageSwitcher() {
   const languages = [
     { code: "en", name: "English", display: "EN" },
     { code: "ar", name: "العربية", display: "ع" },
-    { code: "he", name: "עברית", display: "עב" },
+    { code: "he", name: "עברית", display: "עب" },
   ] as const;
 
   const currentLanguage = languages.find((l) => l.code === lang) || languages[0];
@@ -32,7 +33,7 @@ export default function LanguageSwitcher() {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-1.5 rounded-lg border border-border bg-card/40 px-3 py-1.5 text-xs font-semibold text-foreground/80 shadow-sm transition-all duration-300 hover:border-primary/40 hover:bg-card-hover hover:text-foreground cursor-pointer focus:outline-none focus:ring-1 focus:ring-primary/30"
+        className={`${glass.control} px-3 py-1.5 text-xs text-foreground/80 w-auto h-auto flex items-center gap-1.5 shadow-sm`}
         aria-expanded={isOpen}
         aria-haspopup="true"
       >
@@ -55,7 +56,7 @@ export default function LanguageSwitcher() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 8, scale: 0.95 }}
             transition={{ duration: 0.15, ease: "easeOut" }}
-            className={`absolute top-full mt-1.5 z-50 min-w-32.5 rounded-xl border border-border bg-card/95 p-1.5 shadow-[0_10px_30px_rgba(0,0,0,0.5)] backdrop-blur-xl ${
+            className={`${glass.dropdown} ${
               dir === "rtl" ? "left-0 origin-top-left" : "right-0 origin-top-right"
             }`}
           >

@@ -2,6 +2,7 @@
 
 import React, { useRef } from "react";
 import { motion, useSpring, useTransform, useMotionValue } from "framer-motion";
+import { glass } from "@/constants";
 
 // Spring configuration for super-smooth premium floating and tilt physics
 const SPRING_CONFIG = {
@@ -71,11 +72,11 @@ export default function Hero3D() {
           rotateY,
           transformStyle: "preserve-3d",
         }}
-        className="relative z-10 flex h-75 w-45 flex-col items-center justify-between rounded-[36px] border border-border bg-card/60 p-4 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.8),inset_0_2px_4px_rgba(255,255,255,0.05)] backdrop-blur-xl lg:h-95 lg:w-55"
+        className={glass.phoneContainer}
       >
         {/* INNER SCREEN CONTAINER (with 3D depth) */}
         <div 
-          className="relative flex h-full w-full flex-col items-center overflow-hidden rounded-[26px] bg-background/80 p-3"
+          className={glass.phoneInnerScreen}
           style={{ transform: "translateZ(10px)" }}
         >
           {/* TOP CAMERA / DYNAMIC ISLAND */}
@@ -166,7 +167,7 @@ export default function Hero3D() {
           transformStyle: "preserve-3d",
           transform: "translateZ(60px)",
         }}
-        className="absolute left-2 top-[15%] z-20 flex h-22.5 w-32.5 flex-col justify-between rounded-2xl border border-secondary/30 bg-card/85 p-3 shadow-2xl backdrop-blur-md lg:-left-8.75 lg:h-27.5 lg:w-37.5"
+        className={glass.cardQR}
       >
         <div className="flex items-center gap-2">
           <div className="flex h-6 w-6 items-center justify-center rounded-lg bg-secondary/10 text-secondary">
@@ -205,7 +206,7 @@ export default function Hero3D() {
           transformStyle: "preserve-3d",
           transform: "translateZ(80px)",
         }}
-        className="absolute bottom-[10%] right-2 z-30 flex h-25 w-35 flex-col justify-between rounded-2xl border border-primary/30 bg-card/85 p-3 shadow-2xl backdrop-blur-md lg:-right-8.75 lg:h-30 lg:w-40"
+        className={glass.cardBarcode}
       >
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">

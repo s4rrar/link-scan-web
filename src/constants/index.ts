@@ -47,3 +47,32 @@ export const LINKS = {
   github: "https://github.com/s4rrar/link-scan",
 } as const;
 
+export const glass = {
+  card: "border border-white/10 dark:border-white/5 bg-card/35 p-6 backdrop-blur-lg transition-all duration-300 hover:border-primary/40 hover:bg-card-hover/45 hover:shadow-[0_20px_50px_rgba(8,132,239,0.12)] shadow-[0_8px_32px_0_rgba(0,0,0,0.15)]",
+  cardSecondary: "border border-white/10 dark:border-white/5 bg-card/35 p-5 backdrop-blur-lg transition-all duration-300 hover:border-secondary/40 hover:bg-card-hover/45 hover:shadow-[0_15px_35px_rgba(16,185,129,0.08)] shadow-[0_8px_32px_0_rgba(0,0,0,0.15)]",
+  badge: "border border-white/10 dark:border-white/5 bg-card/45 px-4 py-1.5 text-xs font-medium text-muted backdrop-blur-md shadow-sm",
+  pill: "inline-block rounded-full border border-white/10 dark:border-white/5 bg-card/30 px-5 py-3 text-xs font-semibold uppercase tracking-wider text-muted backdrop-blur-md transition-all duration-300 hover:border-primary/40 hover:bg-primary/15 hover:text-foreground hover:shadow-[0_8px_20px_rgba(8,132,239,0.1)] shadow-sm cursor-default",
+  control: "relative flex h-8 w-8 items-center justify-center rounded-lg border border-white/10 dark:border-white/5 bg-card/25 text-muted transition-all duration-300 hover:border-primary/40 hover:bg-card-hover/30 hover:text-foreground cursor-pointer focus:outline-none focus:ring-1 focus:ring-primary/30 backdrop-blur-md",
+  dropdown: "absolute top-full mt-1.5 z-50 min-w-32.5 rounded-xl border border-white/15 dark:border-white/10 bg-card/75 p-1.5 shadow-[0_10px_30px_rgba(0,0,0,0.3)] backdrop-blur-xl",
+  banner: "relative overflow-hidden rounded-3xl border border-white/15 dark:border-white/10 bg-linear-to-b from-card/45 to-card/20 p-12 text-center backdrop-blur-xl sm:p-16 shadow-[0_30px_70px_-15px_rgba(0,0,0,0.5)]",
+  navbar: "mx-auto flex w-full items-center justify-between transition-all duration-300 max-w-5xl rounded-2xl border border-white/10 dark:border-white/5 bg-card/40 px-6 py-2.5 backdrop-blur-xl shadow-2xl shadow-black/30",
+  stepHover: "group relative flex flex-col gap-4 transition-all duration-300 md:flex-row md:gap-8 hover:bg-card/30 p-4 rounded-2xl border border-transparent hover:border-white/10 dark:hover:border-white/5 hover:backdrop-blur-md hover:shadow-md",
+  iconBox: "mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-primary/5 text-primary transition-all duration-300 group-hover:bg-primary/20 group-hover:shadow-[0_0_15px_rgba(8,132,239,0.3)]",
+  
+  // 3D & Phone Layout Specific
+  phoneContainer: "relative z-10 flex h-75 w-45 flex-col items-center justify-between rounded-[36px] border border-white/15 dark:border-white/10 bg-card/35 p-4 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5),inset_0_2px_4px_rgba(255,255,255,0.05)] backdrop-blur-xl lg:h-95 lg:w-55",
+  phoneInnerScreen: "relative flex h-full w-full flex-col items-center overflow-hidden rounded-[26px] bg-background/40 p-3 border border-white/5 backdrop-blur-md",
+  cardQR: "absolute left-2 top-[15%] z-20 flex h-22.5 w-32.5 flex-col justify-between rounded-2xl border border-secondary/20 bg-card/40 p-3 shadow-2xl backdrop-blur-lg lg:-left-8.75 lg:h-27.5 lg:w-37.5",
+  cardBarcode: "absolute bottom-[10%] right-2 z-30 flex h-25 w-35 flex-col justify-between rounded-2xl border border-primary/20 bg-card/40 p-3 shadow-2xl backdrop-blur-lg lg:-right-8.75 lg:h-30 lg:w-40",
+
+  // Mobile navigation drawer
+  mobileMenu: "fixed top-20 left-4 right-4 z-40 rounded-2xl border border-white/10 dark:border-white/5 bg-card/75 p-6 shadow-[0_20px_50px_rgba(0,0,0,0.3)] backdrop-blur-2xl sm:hidden",
+
+  // Buttons
+  btnPrimary: "group relative inline-flex h-12 w-full sm:w-auto items-center justify-center gap-2.5 overflow-hidden rounded-xl border border-white/20 bg-primary/25 px-8 text-sm font-bold text-white backdrop-blur-md transition-all duration-300 hover:bg-primary/35 hover:border-white/30 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_8px_25px_rgba(8,132,239,0.25)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.25),0_12px_35px_rgba(8,132,239,0.4)]",
+  btnSecondary: "group inline-flex h-12 w-full sm:w-auto items-center justify-center gap-2.5 rounded-xl border border-white/15 dark:border-white/10 bg-white/5 dark:bg-white/5 px-8 text-sm font-semibold text-white backdrop-blur-md transition-all duration-300 hover:border-white/30 hover:bg-white/15 hover:shadow-[0_8px_20px_rgba(0,0,0,0.15)] shadow-sm",
+  btnGradient: "flex h-11 items-center justify-center rounded-xl border border-white/20 bg-linear-to-r from-primary/25 to-secondary/25 hover:from-primary/35 hover:to-secondary/35 text-white font-bold backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_4px_15px_rgba(8,132,239,0.2)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.25),0_8px_25px_rgba(8,132,239,0.35)] transition-all duration-300 active:scale-98",
+  btnBadge: "rounded-lg bg-primary/20 border border-white/20 px-4 py-2 text-xs font-bold uppercase tracking-wider text-white backdrop-blur-sm transition-all duration-300 hover:bg-primary/30 hover:border-white/35 hover:shadow-[0_0_20px_rgba(8,132,239,0.25)]",
+} as const;
+
+

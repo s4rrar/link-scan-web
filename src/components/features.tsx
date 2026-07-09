@@ -2,6 +2,7 @@
 
 import { useI18n } from "@/i18n/config";
 import { StaggerContainer, StaggerItem, TiltCard, Reveal } from "@/components/ui/motion-primitives";
+import { glass } from "@/constants";
 
 export default function Features() {
   const { t, dir } = useI18n();
@@ -33,10 +34,10 @@ export default function Features() {
             {t.features.items.map((f) => (
               <StaggerItem key={f.title} direction="up" scale={true}>
                 <TiltCard className="w-full h-full" tiltMax={10} scaleOnHover={1.025}>
-                  <div className="group h-full flex flex-col justify-between rounded-2xl border border-border bg-card/65 p-6 backdrop-blur-md transition-all duration-300 hover:border-primary/30 hover:bg-card-hover/90 hover:shadow-[0_20px_50px_rgba(8,132,239,0.06)]">
+                  <div className={`group h-full flex flex-col justify-between rounded-2xl ${glass.card}`}>
                     <div>
                       {/* ICON GLOW */}
-                      <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-background group-hover:shadow-[0_0_20px_rgba(8,132,239,0.4)]">
+                      <div className={glass.iconBox}>
                         <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" />
                         </svg>

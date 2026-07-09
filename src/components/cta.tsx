@@ -2,7 +2,7 @@
 
 import { useI18n } from "@/i18n/config";
 import { Reveal, Magnetic, TiltCard } from "@/components/ui/motion-primitives";
-import { LINKS } from "@/constants";
+import { LINKS, glass } from "@/constants";
 
 export default function CTA() {
   const { t, dir } = useI18n();
@@ -17,7 +17,7 @@ export default function CTA() {
           
           {/* Entire CTA Banner block wrapped in a 3D Tilt Card */}
           <TiltCard className="w-full" tiltMax={4} scaleOnHover={1.01}>
-            <div className="relative overflow-hidden rounded-3xl border border-border/70 bg-linear-to-b from-card/80 to-background/90 p-12 text-center backdrop-blur-md sm:p-16 shadow-[0_30px_70px_-15px_rgba(0,0,0,0.7)]">
+            <div className={glass.banner}>
               
               {/* Abstract futuristic background decorations */}
               <div className="absolute inset-0 -z-10 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-size-[24px_24px]" />
@@ -39,7 +39,7 @@ export default function CTA() {
                     href={LINKS.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group relative inline-flex h-12 w-full sm:w-auto items-center justify-center gap-2.5 overflow-hidden rounded-xl bg-primary px-8 text-sm font-semibold text-background transition-colors duration-300 hover:bg-primary-dark shadow-[0_4px_15px_rgba(8,132,239,0.25)] hover:shadow-[0_0_30px_rgba(8,132,239,0.4)]"
+                    className={glass.btnPrimary}
                   >
                     <svg className="h-5 w-5 transition-transform duration-300 group-hover:translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v12m0 0-4-4m4 4 4-4M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" />
@@ -56,7 +56,7 @@ export default function CTA() {
                     href={LINKS.googlePlay}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group inline-flex h-12 w-full sm:w-auto items-center justify-center gap-2.5 rounded-xl border border-border bg-card/40 px-8 text-sm font-semibold text-foreground/80 backdrop-blur-sm transition-all duration-300 hover:border-primary/40 hover:bg-card-hover"
+                    className={glass.btnSecondary}
                   >
                     {t.cta.secondary}
                     <svg className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 rtl:rotate-180 rtl:group-hover:-translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

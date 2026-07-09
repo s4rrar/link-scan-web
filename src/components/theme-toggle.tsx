@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { glass } from "@/constants";
 
 export default function ThemeToggle() {
   const [theme, setTheme] = useState<"dark" | "light">("dark");
@@ -67,7 +68,7 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="relative flex h-8 w-8 items-center justify-center rounded-lg border border-border bg-card/40 text-muted transition-all duration-300 hover:border-primary/40 hover:bg-card-hover hover:text-foreground cursor-pointer focus:outline-none focus:ring-1 focus:ring-primary/30"
+      className={glass.control}
       aria-label={`Switch to ${theme === "dark" ? "Light" : "Dark"} Mode`}
     >
       <motion.div

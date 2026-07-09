@@ -2,6 +2,7 @@
 
 import { useI18n } from "@/i18n/config";
 import { StaggerContainer, StaggerItem, TiltCard, Reveal } from "@/components/ui/motion-primitives";
+import { glass } from "@/constants";
 
 export default function WhyChoose() {
   const { t, dir } = useI18n();
@@ -26,10 +27,10 @@ export default function WhyChoose() {
             {t.whyChoose.items.map((item) => (
               <StaggerItem key={item.title} direction="up" scale={true}>
                 <TiltCard className="w-full h-full" tiltMax={10} scaleOnHover={1.025}>
-                  <div className="group flex h-full flex-col justify-between rounded-2xl border border-border bg-card/65 p-6 backdrop-blur-md transition-all duration-300 hover:border-primary/30 hover:bg-card-hover/90 hover:shadow-[0_20px_50px_rgba(8,132,239,0.06)]">
+                  <div className={`group flex h-full flex-col justify-between rounded-2xl ${glass.card}`}>
                     <div>
                       {/* HIGH-TECH ICON CONTAINER WITH GLOW */}
-                      <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-primary/5 text-primary transition-all duration-300 group-hover:bg-primary/20 group-hover:shadow-[0_0_15px_rgba(8,132,239,0.3)]">
+                      <div className={glass.iconBox}>
                         <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
                         </svg>

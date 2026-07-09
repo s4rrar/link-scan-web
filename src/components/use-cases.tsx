@@ -3,6 +3,7 @@
 import { useI18n } from "@/i18n/config";
 import { Reveal, StaggerContainer, StaggerItem } from "@/components/ui/motion-primitives";
 import { motion } from "framer-motion";
+import { glass } from "@/constants";
 
 export default function UseCases() {
   const { t, dir } = useI18n();
@@ -37,7 +38,7 @@ export default function UseCases() {
                   }}
                   whileTap={{ scale: 0.96 }}
                   transition={{ type: "spring", stiffness: 300, damping: 15 }}
-                  className="inline-block rounded-full border border-border/70 bg-card/50 px-5 py-3 text-xs font-semibold uppercase tracking-wider text-muted backdrop-blur-sm transition-all duration-300 hover:border-primary/50 hover:bg-primary/10 hover:text-foreground cursor-default"
+                  className={glass.pill}
                 >
                   {item}
                 </motion.span>

@@ -3,6 +3,7 @@
 import { useI18n } from "@/i18n/config";
 import { Reveal, StaggerContainer, StaggerItem } from "@/components/ui/motion-primitives";
 import { motion } from "framer-motion";
+import { glass } from "@/constants";
 
 function Step({ 
   num, 
@@ -15,7 +16,7 @@ function Step({
 }) {
   return (
     <StaggerItem direction="up" scale={true}>
-      <div className="group relative flex flex-col gap-4 transition-all duration-300 md:flex-row md:gap-8 hover:bg-card/20 p-4 rounded-2xl border border-transparent hover:border-border/30">
+      <div className={glass.stepHover}>
         
         {/* Step Number Circle */}
         <div className="flex md:w-24 md:justify-center">
